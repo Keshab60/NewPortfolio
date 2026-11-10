@@ -1,6 +1,6 @@
 import { useRef, useState, useMemo, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, Html } from "@react-three/drei";
+import { Float } from "@react-three/drei";
 import * as THREE from "three";
 
 interface SkillNode {
@@ -75,35 +75,6 @@ function OrbitingSkill({
           metalness={0.8}
         />
       </mesh>
-
-      {/* 2D HTML Badge Floating with 3D Node */}
-      <Html
-        position={[0, 0.38, 0]}
-        center
-        distanceFactor={13}
-        zIndexRange={[50, 0]}
-        style={{ pointerEvents: "auto" }}
-      >
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onSelect();
-          }}
-          className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-medium transition-all duration-300 whitespace-nowrap cursor-pointer shadow-md backdrop-blur-md flex items-center gap-1 ${
-            active
-              ? "bg-accent text-white scale-110 shadow-violet-500/50 ring-2 ring-white"
-              : hovered
-              ? "bg-surface-raised text-white scale-105 border border-accent/60"
-              : "bg-surface/90 text-text-primary/80 border border-white/10 hover:border-white/30"
-          }`}
-        >
-          <span
-            className="w-1.5 h-1.5 rounded-full"
-            style={{ backgroundColor: skill.color }}
-          />
-          {skill.name}
-        </button>
-      </Html>
     </group>
   );
 }
