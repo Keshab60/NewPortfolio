@@ -59,9 +59,12 @@ function OrbitingSkill({
         onPointerOver={(e) => {
           e.stopPropagation();
           setHovered(true);
+          document.body.style.cursor = "pointer";
         }}
-        onPointerOut={() => setHovered(false)}
-        cursor="pointer"
+        onPointerOut={() => {
+          setHovered(false);
+          document.body.style.cursor = "auto";
+        }}
       >
         <sphereGeometry args={[0.24, 16, 16]} />
         <meshStandardMaterial
