@@ -95,10 +95,8 @@ export function HeroCardStack({ dark = false }: { dark?: boolean }) {
             <code>
               <span className="hl-key">export const</span> developer = {"{"}
               {"\n"}  name: <span className="hl-str">&quot;Keshab Gouda&quot;</span>,
-              {"\n"}  role: <span className="hl-str">&quot;Full-Stack Engineer&quot;</span>,
-              {"\n"}  stack: [<span className="hl-str">&quot;React 19&quot;</span>, <span className="hl-str">&quot;TypeScript&quot;</span>, <span className="hl-str">&quot;Go&quot;</span>],
-              {"\n"}  mindset: <span className="hl-str">&quot;Craft meets scale&quot;</span>,
-              {"\n"}  shipping: <span className="hl-bool">true</span>,
+              {"\n"}  role: <span className="hl-str">&quot;Software Engineer&quot;</span>,
+              {"\n"}  stack: [<span className="hl-str">&quot;React Native&quot;</span>, <span className="hl-str">&quot;TypeScript&quot;</span>, <span className="hl-str">&quot;Node.js&quot;</span>],
               {"\n"}{"}"};
             </code>
           </pre>
@@ -119,28 +117,28 @@ export function HeroCardStack({ dark = false }: { dark?: boolean }) {
                 <rect x="3" y="11" width="18" height="11" rx="2" />
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />
               </svg>
-              <span>cedar.finance</span>
+              <span>Aumbram</span>
             </div>
-            <span className="mini-tag-badge">PROD</span>
+            <span className="mini-tag-badge">MOBILE</span>
           </div>
 
           <div className="preview-mini-body">
             <div className="preview-mini-header">
               <div>
-                <small>FEATURED SYSTEM</small>
-                <strong>Cedar Finance</strong>
+                <small>FEATURED APP</small>
+                <strong>Aumbram</strong>
               </div>
-              <span className="preview-val-pill">₹84.2L</span>
+              <span className="preview-val-pill">Live</span>
             </div>
 
             <div className="preview-mini-stats">
               <div className="mini-stat">
-                <span>WORKFLOW GAIN</span>
-                <strong>+42% faster</strong>
+                <span>PLATFORM</span>
+                <strong>Google Play</strong>
               </div>
               <div className="mini-stat">
-                <span>LATENCY P99</span>
-                <strong>12 ms</strong>
+                <span>STACK</span>
+                <strong>React Native</strong>
               </div>
             </div>
 
@@ -170,8 +168,7 @@ export function HeroCardStack({ dark = false }: { dark?: boolean }) {
 
             <div className="preview-mini-footer">
               <span className="live-pulse-dot" />
-              <span>Interactive telemetry active</span>
-              <span className="mini-uptime">99.99%</span>
+              <span>Mobile Application</span>
             </div>
           </div>
           {/* Specular glare sheen tracking cursor */}
@@ -186,15 +183,14 @@ export function HeroCardStack({ dark = false }: { dark?: boolean }) {
         {/* 3D Floating Token 2: Telemetry Pill (translateZ +65px) */}
         <div className="hero-3d-floating-token token--sand">
           <span className="token-dot" />
-          <span>v2.5</span>
+          <span>RN</span>
         </div>
 
-        {/* Floating Status Badge: Open to work (translateZ +85px) */}
+        {/* Floating Status Badge: Open to opportunities (translateZ +85px) */}
         <div className="hero-stack-badge">
           <span className="glow-dot" />
           <div className="badge-text">
-            <strong>Open to work</strong>
-            <small>Available for select 2025 projects</small>
+            <strong>Open to opportunities</strong>
           </div>
         </div>
       </div>

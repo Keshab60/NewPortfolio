@@ -6,6 +6,7 @@ import { Project3DTiltCard, type ProjectItem } from "./components/Project3DTiltC
 import { Preloader } from "./components/Preloader";
 import { CustomCursor } from "./components/CustomCursor";
 import { useLenis } from "./hooks/useLenis";
+import { PERSON } from "./data/profile";
 
 const Hero3DScene = lazy(() => import("./components/3d/Hero3DScene"));
 const Background3D = lazy(() => import("./components/3d/Background3D"));
@@ -224,7 +225,6 @@ function App() {
   const [filter, setFilter] = useState("All");
   const [preview, setPreview] = useState<typeof projects[number] | null>(null);
   const [commandOpen, setCommandOpen] = useState(false);
-  const [word, setWord] = useState(0);
   const [projectType, setProjectType] = useState("Website");
   const [sent, setSent] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
@@ -263,11 +263,6 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const timer = window.setInterval(() => setWord(current => (current + 1) % 3), 2200);
-    return () => window.clearInterval(timer);
-  }, []);
-
 
 
   useEffect(() => {
@@ -303,7 +298,6 @@ function App() {
     }
   };
   const filteredProjects = filter === "All" ? projects : projects.filter(project => project.category === filter);
-  const words = ["fast", "accessible", "scalable"];
 
   return <div id="top" className="site relative">
     {loading && <Preloader onComplete={() => setLoading(false)} />}
@@ -321,22 +315,24 @@ function App() {
 
     <main>
       <section className="hero section">
-        <div className="hero-kicker reveal"><span className="status-dot" /> Available for select projects <span>2025</span></div>
+        <div className="hero-kicker reveal"><span className="status-dot" /> Open to opportunities</div>
         <div className="hero-grid">
           <div className="hero-content reveal">
             <div className="hero-title">
-              <Eyebrow>Full-stack developer &amp; Creative Technologist</Eyebrow>
+              <Eyebrow>Software Engineer</Eyebrow>
               <h1>Keshab<br /><em>Gouda.</em></h1>
             </div>
             <div className="hero-copy">
-              <span className="mono-note">&lt;craft /&gt;</span>
-              <h2>I build <span className="rotating-word">{words[word]}</span><br />3D web apps that feel alive.</h2>
-              <p>Frontend finesse meets 3D WebGL immersion and backend reliability. Partnering with ambitious teams to create award-level digital experiences that perform effortlessly at scale.</p>
+              <h2>I build React Native apps and full-stack web products.</h2>
+              <p>Software Engineer at Pairalabs Technology, building REST API-driven mobile and full-stack applications with React Native, TypeScript and the MERN stack.</p>
               <div className="button-row">
-                <Button href="#work" variant="primary">View 3D work <Icon name="arrow" size={17} /></Button>
-                <Button href="#contact" variant="secondary">Book a call</Button>
+                <Button href="#work" variant="primary">View work <Icon name="arrow" size={17} /></Button>
+                <Button href="#contact" variant="secondary">Contact</Button>
               </div>
-              <div className="social-row"><a href="https://github.com" target="_blank" rel="noreferrer"><Icon name="github" size={17} /> GitHub</a><a href="https://linkedin.com" target="_blank" rel="noreferrer"><Icon name="linkedin" size={17} /> LinkedIn</a></div>
+              <div className="social-row">
+                <a href={PERSON.github} target="_blank" rel="noreferrer"><Icon name="github" size={17} /> GitHub</a>
+                <a href={PERSON.linkedin} target="_blank" rel="noreferrer"><Icon name="linkedin" size={17} /> LinkedIn</a>
+              </div>
             </div>
           </div>
           <div className="hero-visual reveal relative">
@@ -377,12 +373,10 @@ function App() {
           </div>
         </div>
         <div className="hero-stats reveal">
-          <div><strong><CountUp value={6} pad={2} /></strong><span>Years experience</span></div>
-          <div><strong><CountUp value={48} /></strong><span>Projects shipped</span></div>
-          <div><strong><CountUp value={16} /></strong><span>Technologies</span></div>
+          <div><strong><CountUp value={30} suffix="+" /></strong><span>React Native screens</span></div>
+          <div><strong><CountUp value={20} suffix="+" /></strong><span>REST APIs integrated</span></div>
+          <div><strong><CountUp value={4} /></strong><span>Projects</span></div>
         </div>
-        <div className="code-fragment code-fragment--one">const quality = details.map(care);</div>
-        <div className="code-fragment code-fragment--two">status: shipping</div>
         <div className="hero-scroll"><span>Scroll to explore</span><i /></div>
       </section>
 
@@ -485,7 +479,7 @@ function App() {
 
     <footer className="footer">
       <div><a className="logo" href="#top"><span>KG</span><i /></a><p>Designing and developing thoughtful digital products.</p></div>
-      <div className="footer-links"><div><Eyebrow>Navigate</Eyebrow><a href="#work">Work</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#contact">Contact</a></div><div><Eyebrow>Connect</Eyebrow><a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a><a href="mailto:hello@keshab.dev">Email</a></div></div>
+      <div className="footer-links"><div><Eyebrow>Navigate</Eyebrow><a href="#work">Work</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#contact">Contact</a></div><div><Eyebrow>Connect</Eyebrow><a href={PERSON.github} target="_blank" rel="noreferrer">GitHub</a><a href={PERSON.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href={`mailto:${PERSON.email}`}>Email</a></div></div>
       <div className="footer-bottom"><span>© 2025 Keshab Gouda</span><span>Built with care in Odisha</span><a href="#top">Back to top ↑</a></div>
     </footer>
   </div>;
