@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useState, type FormEvent, type ReactNode } from "react";
-import { BrowserMockup, ProjectMockupDispatcher } from "./components/ProjectMockups";
+import { BrowserMockup, PhoneMockup, ProjectMockupDispatcher } from "./components/ProjectMockups";
 import { HeroCardStack } from "./components/HeroCardStack";
 import { CountUp } from "./components/CountUp";
 import { Project3DTiltCard, type ProjectItem } from "./components/Project3DTiltCard";
@@ -172,7 +172,7 @@ function ProjectModal({ project, onClose }: { project: typeof projects[number]; 
 
 const commandItems = [
   ["Work", "#work", "Selected products and mockups"],
-  ["Case study", "#case-study", "Cedar Finance architecture deep dive"],
+  ["Case study", "#case-study", "Aumbram architecture deep dive"],
   ["Skills Galaxy", "#skills", "Interactive 3D constellation & technical mastery"],
   ["About", "#about", "Bio, story beats & career timeline"],
   ["Contact", "#contact", "Project inquiries and availability"],
@@ -448,34 +448,38 @@ function App() {
 
       <section id="case-study" className="case-study section">
         <div className="case-top reveal">
-          <div><Eyebrow>Featured case study / 2024</Eyebrow><h2>Cedar Finance</h2></div>
-          <p>Making wealth management feel less like a spreadsheet and more like a conversation.</p>
+          <div><Eyebrow>Featured case study</Eyebrow><h2>Aumbram</h2></div>
+          <p>An all-in-one mobile platform for shopping, learning, social and music.</p>
         </div>
         <div className="case-facts reveal">
-          <div><Eyebrow>Role</Eyebrow><strong>Lead developer</strong></div>
-          <div><Eyebrow>Stack</Eyebrow><strong>React, Node, PostgreSQL</strong></div>
-          <div><Eyebrow>Timeline</Eyebrow><strong>16 weeks</strong></div>
-          <div><Eyebrow>Impact</Eyebrow><strong>42% faster workflows</strong></div>
+          <div><Eyebrow>Role</Eyebrow><strong>Software Engineer (React Native)</strong></div>
+          <div><Eyebrow>Stack</Eyebrow><strong>React Native, TypeScript, REST APIs</strong></div>
+          <div><Eyebrow>Company</Eyebrow><strong>Pairalabs Technology</strong></div>
+          <div><Eyebrow>Status</Eyebrow><strong>Live on Google Play</strong></div>
         </div>
         <div className="case-visual art--cedar reveal">
           <div className="case-mockup-wrapper">
-            <BrowserMockup type="finance" url="cedar.finance/app/terminal" />
+            <PhoneMockup title="Aumbram" />
           </div>
-          <span className="case-caption">01 — Live Cedar Finance advisory terminal / desktop view</span>
+          <span className="case-caption">01 — Aumbram mobile application</span>
         </div>
         <div className="case-content">
-          <div className="case-copy reveal"><Eyebrow>The problem</Eyebrow><h3>Complex data, without the complexity.</h3><p>Advisors were losing hours each week navigating disconnected tools. We created one calm, cohesive workspace where the most important signal always rises above the noise.</p><p>I led frontend architecture, collaborated on product flows, and designed a typed API layer that made iteration faster across the team.</p></div>
+          <div className="case-copy reveal">
+            <Eyebrow>Implementation</Eyebrow>
+            <h3>Architecture &amp; Features</h3>
+            <p>Built production-ready React Native screens and integrated Authentication, Follow/Following, Course Enrollment, Music Upload and Profile Management using REST APIs. Built reusable TypeScript UI components and implemented navigation with React Navigation to keep design patterns consistent.</p>
+            <p>Performance was tuned with lazy loading, image caching and FlatList rendering.</p>
+          </div>
           <div className="code-block reveal">
-            <div className="code-head"><span><i /><i /><i /> portfolio.ts</span><button onClick={() => { navigator.clipboard?.writeText("const portfolio = await api.portfolio.summary();"); setCopied(true); }}><Icon name="copy" size={15} /> {copied ? "Copied" : "Copy"}</button></div>
-            <pre><code><span className="code-muted">{"// Calm UI starts with clear data"}</span>{"\n"}<span className="code-key">const</span> portfolio = <span className="code-key">await</span> api.portfolio.<span className="code-fn">summary</span>({"{"}{"\n  "}currency: <span className="code-string">&quot;INR&quot;</span>,{"\n  "}period: <span className="code-string">&quot;YTD&quot;</span>,{"\n"}{"}"});</code></pre>
+            <div className="code-head"><span><i /><i /><i /> Example pattern</span><button onClick={() => { navigator.clipboard?.writeText("const { data: profile } = useQuery({\n  queryKey: [\"profile\", userId],\n  queryFn: () => fetchProfile(userId),\n});"); setCopied(true); }}><Icon name="copy" size={15} /> {copied ? "Copied" : "Copy"}</button></div>
+            <pre><code><span className="code-muted">{"// Example pattern"}</span>{"\n"}<span className="code-key">const</span> {"{ data: profile }"} = <span className="code-fn">useQuery</span>({"{"}{"\n  "}queryKey: [<span className="code-string">&quot;profile&quot;</span>, userId],{"\n  "}queryFn: () =&gt; <span className="code-fn">fetchProfile</span>(userId),{"\n"}{"}"});</code></pre>
           </div>
         </div>
         <div className="metrics reveal">
-          <div><strong><CountUp value={42} suffix="%" /></strong><span>faster advisor workflows</span></div>
-          <div><strong><CountUp value={98} /></strong><span>Lighthouse performance</span></div>
-          <div><strong><CountUp value={2.4} suffix="×" decimals={1} /></strong><span>increase in engagement</span></div>
+          <div><strong><CountUp value={30} suffix="+" /></strong><span>React Native screens</span></div>
+          <div><strong><CountUp value={20} suffix="+" /></strong><span>REST APIs integrated</span></div>
         </div>
-        <a href="#work" className="next-project reveal"><span><Eyebrow>Next project</Eyebrow><strong>Northline Studio</strong></span><Icon name="arrow" size={28} /></a>
+        <a href="#work" className="next-project reveal"><span><Eyebrow>Next project</Eyebrow><strong>Wallely</strong></span><Icon name="arrow" size={28} /></a>
       </section>
 
       <section id="skills" className="stack section">
