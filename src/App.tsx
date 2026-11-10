@@ -484,9 +484,9 @@ function App() {
 
       <section id="skills" className="stack section">
         <SectionHeading
-          label="02 / Capabilities &amp; 3D Constellation"
-          title="Interactive Skills Galaxy."
-          intro="A real-time 3D constellation of frameworks, runtimes, and creative engineering disciplines. Drag to rotate or click any tech node to inspect."
+          label="02 / Skills"
+          title="Tools I work with."
+          intro="The tools I use day to day. Drag to rotate or click a node."
         />
         <Suspense
           fallback={
@@ -499,11 +499,13 @@ function App() {
         </Suspense>
         <div className="stack-grid reveal mt-10">
           {[
-            ["Languages", ["TypeScript", "JavaScript", "Go", "Python"]],
-            ["Frontend & 3D", ["React 19", "Three.js", "R3F", "Framer Motion", "Tailwind v4"]],
-            ["Backend", ["Node.js", "Express", "REST", "GraphQL"]],
-            ["Databases", ["PostgreSQL", "MongoDB", "Redis", "Supabase"]],
-            ["Tools & DevOps", ["Git", "Docker", "AWS", "Vercel"]],
+            ["Languages", ["JavaScript (ES6+)", "TypeScript", "Java", "C"]],
+            ["Mobile", ["React Native", "Expo", "React Navigation", "TanStack Query"]],
+            ["Frontend", ["React.js", "HTML", "CSS", "Tailwind CSS"]],
+            ["Backend", ["Node.js", "Express.js", "REST APIs", "JWT", "Socket.IO"]],
+            ["Databases", ["MongoDB", "Mongoose"]],
+            ["State", ["Redux", "React Context API"]],
+            ["Tools", ["Git", "GitHub", "Postman", "VS Code"]],
           ].map(([category, items]) => <div className="stack-group" key={category as string}><h3>{category}</h3><div>{(items as string[]).map(item => <span className="tag" key={item}>{item}</span>)}</div></div>)}
         </div>
       </section>

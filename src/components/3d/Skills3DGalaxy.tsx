@@ -5,25 +5,84 @@ import * as THREE from "three";
 
 interface SkillNode {
   name: string;
-  category: "frontend" | "backend" | "creative3d" | "cloud";
-  level: string;
+  category: "Mobile" | "Languages" | "Frontend" | "Backend" | "Databases" | "State";
   desc: string;
   color: string;
 }
 
 const SKILLS_DATA: SkillNode[] = [
-  { name: "React 19", category: "frontend", level: "98%", desc: "Server Components, hooks, concurrent UI", color: "#00F0FF" },
-  { name: "TypeScript", category: "frontend", level: "96%", desc: "Type-level architecture, strict safety", color: "#3178C6" },
-  { name: "Three.js / R3F", category: "creative3d", level: "94%", desc: "Shaders, physics, WebGL optimization", color: "#7C5CFF" },
-  { name: "Next.js", category: "frontend", level: "92%", desc: "App router, SSR, Edge rendering", color: "#FFFFFF" },
-  { name: "Node.js", category: "backend", level: "93%", desc: "Async I/O, event loops, high concurrency", color: "#339933" },
-  { name: "Go (Golang)", category: "backend", level: "88%", desc: "Microservices, goroutines, distributed tools", color: "#00ADD8" },
-  { name: "Tailwind CSS v4", category: "frontend", level: "99%", desc: "Fluid layouts, design tokens, micro-interactions", color: "#38BDF8" },
-  { name: "PostgreSQL", category: "backend", level: "90%", desc: "Relational queries, indexes, migrations", color: "#4169E1" },
-  { name: "Redis", category: "backend", level: "89%", desc: "In-memory caching, pub/sub, rate limiters", color: "#DC382D" },
-  { name: "Docker", category: "cloud", level: "87%", desc: "Containerization, staging pipelines", color: "#2496ED" },
-  { name: "GraphQL", category: "backend", level: "86%", desc: "Schema stitching, Apollo, subscriptions", color: "#E10098" },
-  { name: "Framer Motion", category: "creative3d", level: "95%", desc: "Spring physics, layout animations, gestures", color: "#FF0055" },
+  {
+    name: "React Native",
+    category: "Mobile",
+    desc: "Cross-platform mobile apps with native components, React Navigation, FlatList and custom hooks.",
+    color: "#00F0FF",
+  },
+  {
+    name: "TypeScript",
+    category: "Languages",
+    desc: "Typed codebases, interfaces, generics, strict mode and end-to-end type safety.",
+    color: "#3178C6",
+  },
+  {
+    name: "JavaScript (ES6+)",
+    category: "Languages",
+    desc: "Modern ECMAScript, async/await, closures, array methods and DOM/runtime concepts.",
+    color: "#F7DF1E",
+  },
+  {
+    name: "React.js",
+    category: "Frontend",
+    desc: "Functional components, hooks, Context API, reusable component design and state management.",
+    color: "#61DAFB",
+  },
+  {
+    name: "Expo",
+    category: "Mobile",
+    desc: "Managed and bare workflows, OTA updates, asset handling and quick prototyping.",
+    color: "#FFFFFF",
+  },
+  {
+    name: "TanStack Query",
+    category: "Mobile",
+    desc: "Server-state caching, background refetching, query invalidation and optimistic updates.",
+    color: "#FF4154",
+  },
+  {
+    name: "Node.js",
+    category: "Backend",
+    desc: "Event loop, asynchronous I/O, REST service architecture and npm module development.",
+    color: "#339933",
+  },
+  {
+    name: "Express.js",
+    category: "Backend",
+    desc: "Middleware pipelines, REST routing, JWT auth protection and error handling.",
+    color: "#999999",
+  },
+  {
+    name: "MongoDB",
+    category: "Databases",
+    desc: "Document databases, schema design with Mongoose, aggregation pipelines and indexing.",
+    color: "#47A248",
+  },
+  {
+    name: "Socket.IO",
+    category: "Backend",
+    desc: "Real-time bidirectional WebSocket events, rooms, namespaces and one-to-one messaging.",
+    color: "#010101",
+  },
+  {
+    name: "Redux",
+    category: "State",
+    desc: "Global state slices, action creators, reducers and state persistence.",
+    color: "#764ABC",
+  },
+  {
+    name: "REST APIs & JWT",
+    category: "Backend",
+    desc: "RESTful endpoint conventions, token-based authentication, role authorization and Postman testing.",
+    color: "#7C5CFF",
+  },
 ];
 
 function OrbitingSkill({
@@ -226,24 +285,8 @@ export function Skills3DGalaxy() {
           </p>
         </div>
 
-        <div className="pt-2 border-t border-white/10">
-          <div className="flex justify-between text-xs font-mono mb-1.5">
-            <span className="text-text-muted">Mastery Index</span>
-            <span className="text-accent font-semibold">{activeSkill.level}</span>
-          </div>
-          <div className="w-full h-2 rounded-full bg-surface overflow-hidden border border-white/5">
-            <div
-              className="h-full rounded-full transition-all duration-700 ease-out"
-              style={{
-                width: activeSkill.level,
-                background: `linear-gradient(90deg, ${activeSkill.color}, #7C5CFF)`,
-              }}
-            />
-          </div>
-        </div>
-
         {/* Quick select buttons */}
-        <div className="pt-2">
+        <div className="pt-2 border-t border-white/10">
           <span className="text-[10px] font-mono text-muted uppercase tracking-wider block mb-2">
             Quick Select
           </span>
