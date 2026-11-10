@@ -1,14 +1,15 @@
-import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { BrowserMockup, ProjectMockupDispatcher } from "./components/ProjectMockups";
 import { HeroCardStack } from "./components/HeroCardStack";
 import { CountUp } from "./components/CountUp";
-import { Hero3DScene } from "./components/3d/Hero3DScene";
-import { Background3D } from "./components/3d/Background3D";
-import { Skills3DGalaxy } from "./components/3d/Skills3DGalaxy";
 import { Project3DTiltCard, type ProjectItem } from "./components/Project3DTiltCard";
 import { Preloader } from "./components/Preloader";
 import { CustomCursor } from "./components/CustomCursor";
 import { useLenis } from "./hooks/useLenis";
+
+const Hero3DScene = lazy(() => import("./components/3d/Hero3DScene"));
+const Background3D = lazy(() => import("./components/3d/Background3D"));
+const Skills3DGalaxy = lazy(() => import("./components/3d/Skills3DGalaxy"));
 
 type IconName =
   | "arrow"
@@ -261,6 +262,23 @@ function App() {
   const [emailCopied, setEmailCopied] = useState(false);
   const [eggClicks, setEggClicks] = useState(0);
   const [egg, setEgg] = useState(false);
+  const [renderBackground3D, setRenderBackground3D] = useState(false);
+
+  useEffect(() => {
+    const checkBg = () => {
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const isMobile = window.innerWidth < 768;
+      setRenderBackground3D(!prefersReduced && !isMobile);
+    };
+    checkBg();
+    window.addEventListener("resize", checkBg);
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    motionQuery.addEventListener?.("change", checkBg);
+    return () => {
+      window.removeEventListener("resize", checkBg);
+      motionQuery.removeEventListener?.("change", checkBg);
+    };
+  }, []);
 
   // Initialize smooth scrolling with Lenis (60/120fps, zero Chrome jank)
   useLenis();
@@ -322,7 +340,11 @@ function App() {
   return <div id="top" className="site relative">
     {loading && <Preloader onComplete={() => setLoading(false)} />}
     <CustomCursor />
-    <Background3D />
+    {renderBackground3D && (
+      <Suspense fallback={null}>
+        <Background3D />
+      </Suspense>
+    )}
     <Nav dark={dark} setDark={setDark} onCommand={() => setCommandOpen(true)} onLogo={logoClick} />
     {commandOpen && <CommandPalette onClose={() => setCommandOpen(false)} />}
     {preview && <ProjectModal project={preview} onClose={() => setPreview(null)} />}
@@ -352,7 +374,9 @@ function App() {
           <div className="hero-visual reveal relative">
             <div className="w-full h-full relative min-h-[460px] md:min-h-[520px] flex items-center justify-center">
               {heroMode === "3d" ? (
-                <Hero3DScene />
+                <Suspense fallback={null}>
+                  <Hero3DScene />
+                </Suspense>
               ) : (
                 <HeroCardStack dark={dark} />
               )}
@@ -446,7 +470,15 @@ function App() {
           title="Interactive Skills Galaxy."
           intro="A real-time 3D constellation of frameworks, runtimes, and creative engineering disciplines. Drag to rotate or click any tech node to inspect."
         />
-        <Skills3DGalaxy />
+        <Suspense
+          fallback={
+            <div className="w-full h-[420px] md:h-[500px] flex items-center justify-center text-xs font-mono text-muted bg-surface/40 rounded-2xl border border-white/10 my-6">
+              Loading 3D Galaxy...
+            </div>
+          }
+        >
+          <Skills3DGalaxy />
+        </Suspense>
         <div className="stack-grid reveal mt-10">
           {[
             ["Languages", ["TypeScript", "JavaScript", "Go", "Python"]],
