@@ -63,24 +63,6 @@ const projects: ProjectItem[] = [
   { n: "04", title: "Form & Field", type: "E-commerce & Spatial", category: "Open Source", metric: "38% faster load", description: "A calm, tactile storefront for a contemporary furniture collection with 3D product previews.", tags: ["React", "Stripe", "Prisma"], art: "field", featured: true },
 ];
 
-function ProjectCard({ project, onPreview }: { project: typeof projects[number]; onPreview: () => void }) {
-  return <article className={`project-card reveal ${project.featured ? "project-card--wide" : ""}`}>
-    <button className={`project-art art--${project.art}`} onClick={onPreview} aria-label={`Quick preview ${project.title}`}>
-      <div className="project-art-canvas">
-        <ProjectMockupDispatcher projectArt={project.art} category={project.category} />
-      </div>
-      <span className="art-label">{project.n} / Selected work</span>
-      <span className="project-metric">{project.metric}</span>
-      <span className="preview-cta">Quick preview <Icon name="arrow" size={15} /></span>
-    </button>
-    <div className="project-meta">
-      <div><Eyebrow>{project.type}</Eyebrow><h3>{project.title}</h3><p>{project.description}</p></div>
-      <div className="tag-row">{project.tags.map(tag => <span className="tag" key={tag}>{tag}</span>)}</div>
-      <div className="project-links"><a href="#case-study">Live demo <Icon name="arrow" size={15} /></a><a href="https://github.com" target="_blank" rel="noreferrer">GitHub <Icon name="arrow" size={15} /></a></div>
-    </div>
-  </article>;
-}
-
 function Nav({ dark, setDark, onCommand, onLogo }: { dark: boolean; setDark: (value: boolean) => void; onCommand: () => void; onLogo: () => void }) {
   const [open, setOpen] = useState(false);
   const links = [["Work", "#work"], ["Skills", "#skills"], ["About", "#about"], ["Contact", "#contact"]];
@@ -232,20 +214,6 @@ function TerminalCard() {
     <div className="terminal-output"><span>$ {command}</span><p>{answers[command]}</p></div>
     <div className="terminal-commands">{Object.keys(answers).map(item => <button className={item === command ? "active" : ""} onClick={() => setCommand(item)} key={item}>{item}</button>)}</div>
   </div>;
-}
-
-function Cursor() {
-  useEffect(() => {
-    const cursor = document.querySelector<HTMLElement>(".custom-cursor");
-    const move = (event: MouseEvent) => {
-      if (!cursor) return;
-      cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
-      cursor.classList.toggle("is-hovering", !!(event.target as HTMLElement).closest("a,button,input,textarea"));
-    };
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
-  }, []);
-  return <div className="custom-cursor" />;
 }
 
 function App() {
