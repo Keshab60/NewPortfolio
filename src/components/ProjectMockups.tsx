@@ -82,7 +82,7 @@ export function BrowserMockup({
             <aside className="mockup-sidebar">
               <div className="mockup-sidebar-logo">
                 <div className="mockup-brand-mark" />
-                <span>Cedar</span>
+                <span>App</span>
               </div>
               <nav className="mockup-nav-items">
                 <span className="mockup-nav-item active">
@@ -98,19 +98,19 @@ export function BrowserMockup({
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M3 3v18h18" /><path d="m19 9-5 5-4-4-3 3" />
                   </svg>
-                  Analytics
+                  Activity
                 </span>
                 <span className="mockup-nav-item">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <rect x="2" y="4" width="20" height="16" rx="2" />
                     <path d="M6 8h.01M10 8h.01" />
                   </svg>
-                  Accounts
+                  Modules
                 </span>
               </nav>
               <div className="mockup-sidebar-footer">
                 <span className="user-dot" />
-                <span>Advisory Pro</span>
+                <span>Active User</span>
               </div>
             </aside>
 
@@ -118,49 +118,47 @@ export function BrowserMockup({
             <main className="mockup-main">
               <header className="mockup-app-header">
                 <div>
-                  <small>PORTFOLIO SUMMARY</small>
-                  <h4>Advisory Terminal</h4>
+                  <small>SYSTEM OVERVIEW</small>
+                  <h4>Dashboard Terminal</h4>
                 </div>
                 <div className="mockup-header-badges">
                   <span className="badge badge--success">● Synced</span>
-                  <span className="badge badge--neutral">INR (₹)</span>
+                  <span className="badge badge--neutral">Live State</span>
                 </div>
               </header>
 
               {/* Stat Cards */}
               <div className="mockup-stat-row">
                 <div className="mockup-stat-card">
-                  <span>Net Assets</span>
-                  <strong>₹84,29,180</strong>
-                  <span className="trend trend--up">↑ +18.4% YTD</span>
+                  <span>Interface</span>
+                  <strong>Screens</strong>
+                  <span className="trend trend--up">Interactive</span>
                 </div>
                 <div className="mockup-stat-card">
-                  <span>Weighted Yield</span>
-                  <strong>11.82%</strong>
-                  <span className="trend trend--up">↑ +2.1% v/s Nifty</span>
+                  <span>API Integration</span>
+                  <strong>REST</strong>
+                  <span className="trend trend--up">Connected</span>
                 </div>
                 <div className="mockup-stat-card">
-                  <span>Risk Score</span>
-                  <strong>Moderate</strong>
-                  <span className="trend trend--neutral">Beta 0.88</span>
+                  <span>Architecture</span>
+                  <strong>Modular</strong>
+                  <span className="trend trend--neutral">Optimized</span>
                 </div>
               </div>
 
               {/* Chart Panel */}
               <div className="mockup-chart-card">
                 <div className="chart-header">
-                  <span>Performance Curve</span>
+                  <span>Activity Curve</span>
                   <div className="chart-pills">
-                    <span className="pill active">1M</span>
-                    <span className="pill">6M</span>
-                    <span className="pill">YTD</span>
-                    <span className="pill">ALL</span>
+                    <span className="pill active">Realtime</span>
+                    <span className="pill">History</span>
                   </div>
                 </div>
                 <div className="chart-area">
                   <svg viewBox="0 0 460 120" className="chart-svg" preserveAspectRatio="none">
                     <defs>
-                      <linearGradient id="cedarGradient" x1="0" y1="0" x2="0" y2="1">
+                      <linearGradient id="mockupAreaGradient" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.4" />
                         <stop offset="90%" stopColor="var(--accent)" stopOpacity="0.02" />
                       </linearGradient>
@@ -168,7 +166,7 @@ export function BrowserMockup({
                     {/* Area fill */}
                     <path
                       d="M 0,95 Q 40,85 80,72 T 160,50 T 240,60 T 320,30 T 400,22 L 460,15 L 460,120 L 0,120 Z"
-                      fill="url(#cedarGradient)"
+                      fill="url(#mockupAreaGradient)"
                     />
                     {/* Line stroke */}
                     <path
@@ -188,37 +186,37 @@ export function BrowserMockup({
               {/* Table Rows */}
               <div className="mockup-table">
                 <div className="table-row table-head">
-                  <span>Asset Class</span>
-                  <span>Allocation</span>
-                  <span>Value</span>
+                  <span>Module</span>
+                  <span>Layer</span>
+                  <span>Protocol</span>
                   <span>Status</span>
                 </div>
                 <div className="table-row">
-                  <span className="asset-name"><i className="asset-icon" /> Equity Core</span>
-                  <span>54.2%</span>
-                  <span>₹45,68,615</span>
-                  <span className="pill-tag pill-tag--green">Outperforming</span>
+                  <span className="asset-name"><i className="asset-icon" /> Client App</span>
+                  <span>UI / Screens</span>
+                  <span>TypeScript</span>
+                  <span className="pill-tag pill-tag--green">Deployed</span>
                 </div>
                 <div className="table-row">
-                  <span className="asset-name"><i className="asset-icon asset-icon--debt" /> Sovereign Debt</span>
-                  <span>28.0%</span>
-                  <span>₹23,60,170</span>
-                  <span className="pill-tag pill-tag--blue">Hedging</span>
+                  <span className="asset-name"><i className="asset-icon asset-icon--debt" /> Data Services</span>
+                  <span>API Layer</span>
+                  <span>REST</span>
+                  <span className="pill-tag pill-tag--blue">Connected</span>
                 </div>
               </div>
             </main>
           </div>
         ) : (
-          /* Store UI (Form & Field) */
+          /* Store UI (Restaurant App / Full-stack) */
           <div className="mockup-app-store">
             <header className="mockup-store-header">
-              <span className="store-title">FORM &amp; FIELD</span>
+              <span className="store-title">RESTAURANT APP</span>
               <div className="store-nav">
-                <span>Living</span>
-                <span className="active">Objects</span>
-                <span>Lighting</span>
+                <span>Menu</span>
+                <span className="active">Dishes</span>
+                <span>Cart</span>
               </div>
-              <span className="store-cart">Bag (2)</span>
+              <span className="store-cart">Cart (2)</span>
             </header>
             <div className="store-hero">
               <div className="store-featured-card">
@@ -226,25 +224,25 @@ export function BrowserMockup({
                   <div className="sculpture-shape" />
                 </div>
                 <div className="object-info">
-                  <small>SERIES 04 / CERAMIC</small>
-                  <h3>Kuro Vessel</h3>
-                  <p>Hand-thrown stoneware with reactive matte iron slip.</p>
+                  <small>MERN STACK</small>
+                  <h3>Chef&apos;s Special</h3>
+                  <p>Fresh ingredients, role-based order workflow and online payments.</p>
                   <div className="object-footer">
-                    <strong>$340 USD</strong>
-                    <span className="btn-pill">Add to bag</span>
+                    <strong>Featured</strong>
+                    <span className="btn-pill">Order Now</span>
                   </div>
                 </div>
               </div>
               <div className="store-mini-cards">
                 <div className="store-mini-card">
                   <div className="mini-thumb thumb-one" />
-                  <span>Brushed Oak Stool</span>
-                  <strong>$480</strong>
+                  <span>Special Menu</span>
+                  <strong>Ready</strong>
                 </div>
                 <div className="store-mini-card">
                   <div className="mini-thumb thumb-two" />
-                  <span>Pendant Sconce</span>
-                  <strong>$260</strong>
+                  <span>Cart Review</span>
+                  <strong>Online</strong>
                 </div>
               </div>
             </div>
@@ -261,7 +259,7 @@ export function BrowserMockup({
  */
 export function PhoneMockup({
   image,
-  title = "Northline Studio",
+  title = "Mobile App",
   className = "",
 }: PhoneMockupProps) {
   if (image) {
@@ -300,7 +298,7 @@ export function PhoneMockup({
           {/* App Header */}
           <div className="phone-app-header">
             <div>
-              <small>ARCHITECTURE &amp; SPACES</small>
+              <small>MOBILE APP</small>
               <h4>{title}</h4>
             </div>
             <div className="phone-menu-btn">
@@ -320,15 +318,15 @@ export function PhoneMockup({
                   <i /><i /><i /><i />
                 </div>
               </div>
-              <span className="arch-tag">KYOTO · 2024</span>
+              <span className="arch-tag">PRODUCTION</span>
             </div>
             <div className="arch-body">
-              <h5>The Glass Pavilion</h5>
-              <p>Passive solar thermal cantilever overlooking Arashiyama forest.</p>
+              <h5>{title}</h5>
+              <p>Cross-platform mobile application with fluid screens and REST API integration.</p>
               <div className="arch-specs">
-                <span>3,400 sq.ft</span>
-                <span>Timber &amp; Glass</span>
-                <span className="spec-stat">2.4× Flow</span>
+                <span>Screens</span>
+                <span>TypeScript</span>
+                <span className="spec-stat">Native</span>
               </div>
             </div>
           </div>
@@ -337,8 +335,8 @@ export function PhoneMockup({
           <div className="phone-sub-card">
             <div className="sub-thumb" />
             <div>
-              <strong>Studio Residence IX</strong>
-              <small>Zurich · Under construction</small>
+              <strong>Interface Module</strong>
+              <small>React Native</small>
             </div>
             <span className="arrow-chip">→</span>
           </div>
@@ -373,7 +371,7 @@ export function PhoneMockup({
  */
 export function CodeMockup({
   image,
-  endpoint = "/v1/events/dispatch",
+  endpoint = "/api/chat",
   method = "POST",
   className = "",
 }: CodeMockupProps) {
@@ -386,7 +384,7 @@ export function CodeMockup({
             <span className="dot dot--yellow" />
             <span className="dot dot--green" />
           </div>
-          <span className="mockup-file-tab">relay-runner.sh</span>
+          <span className="mockup-file-tab">socket-service.ts</span>
         </div>
         <div className="mockup-screen">
           <img src={image} alt="Code preview" className="mockup-img" />
@@ -410,12 +408,12 @@ export function CodeMockup({
             <span className="tab-path">{endpoint}</span>
           </span>
           <span className="code-tab">
-            <span className="tab-file">consumer.go</span>
+            <span className="tab-file">events.ts</span>
           </span>
         </div>
         <div className="code-pill-status">
           <span className="status-dot-pulse" />
-          <span>200 OK · 11ms</span>
+          <span>200 OK</span>
         </div>
       </div>
 
@@ -429,14 +427,13 @@ export function CodeMockup({
           <pre className="code-snippet">
             <code>
               <span className="hl-bracket">{"{"}</span>
-              {"\n"}  <span className="hl-key">&quot;event&quot;</span>: <span className="hl-str">&quot;order.completed&quot;</span>,
-              {"\n"}  <span className="hl-key">&quot;cluster_id&quot;</span>: <span className="hl-str">&quot;ap-south-1&quot;</span>,
+              {"\n"}  <span className="hl-key">&quot;event&quot;</span>: <span className="hl-str">&quot;message.sent&quot;</span>,
+              {"\n"}  <span className="hl-key">&quot;room&quot;</span>: <span className="hl-str">&quot;chat_room_01&quot;</span>,
               {"\n"}  <span className="hl-key">&quot;payload&quot;</span>: <span className="hl-bracket">{"{"}</span>
-              {"\n"}    <span className="hl-key">&quot;amount_cents&quot;</span>: <span className="hl-num">8429180</span>,
-              {"\n"}    <span className="hl-key">&quot;idempotency_key&quot;</span>: <span className="hl-str">&quot;idemp_89f0a&quot;</span>
+              {"\n"}    <span className="hl-key">&quot;content&quot;</span>: <span className="hl-str">&quot;Hello world&quot;</span>,
+              {"\n"}    <span className="hl-key">&quot;senderId&quot;</span>: <span className="hl-str">&quot;user_89f0a&quot;</span>
               {"\n"}  <span className="hl-bracket">{"}"}</span>,
-              {"\n"}  <span className="hl-key">&quot;retries&quot;</span>: <span className="hl-num">3</span>,
-              {"\n"}  <span className="hl-key">&quot;stream_persist&quot;</span>: <span className="hl-bool">true</span>
+              {"\n"}  <span className="hl-key">&quot;timestamp&quot;</span>: <span className="hl-str">&quot;now&quot;</span>
               {"\n"}<span className="hl-bracket">{"}"}</span>
             </code>
           </pre>
@@ -445,17 +442,17 @@ export function CodeMockup({
         {/* Live Response Pane */}
         <div className="code-pane code-pane--response">
           <div className="pane-header">
-            <small>STREAM TELEMETRY</small>
-            <span className="uptime-pill">99.99% Uptime</span>
+            <small>SOCKET TELEMETRY</small>
+            <span className="uptime-pill">Connected</span>
           </div>
           <pre className="code-snippet">
             <code>
-              <span className="hl-comment">// Worker acknowledgement via Go ring-buffer</span>
+              <span className="hl-comment">// Real-time Socket.IO event dispatch</span>
               {"\n"}<span className="hl-bracket">{"{"}</span>
-              {"\n"}  <span className="hl-key">&quot;status&quot;</span>: <span className="hl-str">&quot;ACK_QUEUED&quot;</span>,
-              {"\n"}  <span className="hl-key">&quot;latency_p99&quot;</span>: <span className="hl-str">&quot;1.42ms&quot;</span>,
-              {"\n"}  <span className="hl-key">&quot;active_nodes&quot;</span>: <span className="hl-num">8</span>,
-              {"\n"}  <span className="hl-key">&quot;throughput_rps&quot;</span>: <span className="hl-num">24500</span>
+              {"\n"}  <span className="hl-key">&quot;status&quot;</span>: <span className="hl-str">&quot;DELIVERED&quot;</span>,
+              {"\n"}  <span className="hl-key">&quot;transport&quot;</span>: <span className="hl-str">&quot;websocket&quot;</span>,
+              {"\n"}  <span className="hl-key">&quot;activeRooms&quot;</span>: <span className="hl-num">1</span>,
+              {"\n"}  <span className="hl-key">&quot;broadcast&quot;</span>: <span className="hl-bool">true</span>
               {"\n"}<span className="hl-bracket">{"}"}</span>
             </code>
           </pre>
@@ -463,16 +460,16 @@ export function CodeMockup({
           {/* Terminal telemetry footer */}
           <div className="telemetry-bar">
             <div>
-              <span>P99 LATENCY</span>
-              <strong>1.42 ms</strong>
+              <span>TRANSPORT</span>
+              <strong>WebSocket</strong>
             </div>
             <div>
-              <span>QUEUE CAPACITY</span>
-              <strong>0.02%</strong>
+              <span>STATUS</span>
+              <strong>Connected</strong>
             </div>
             <div>
-              <span>RESILIENCY</span>
-              <strong>Zero Drop</strong>
+              <span>EVENT</span>
+              <strong>Realtime</strong>
             </div>
           </div>
         </div>
@@ -495,31 +492,20 @@ export function ProjectMockupDispatcher({
   image?: string;
   className?: string;
 }) {
-  if (projectArt === "cedar" || category === "Web") {
-    return (
-      <BrowserMockup
-        type="finance"
-        url="cedar.finance/app/terminal"
-        image={image}
-        className={className}
-      />
-    );
-  }
-
-  if (projectArt === "north" || category === "Mobile") {
+  if (category === "Mobile" || projectArt === "cedar" || projectArt === "north") {
     return (
       <PhoneMockup
-        title="Northline Studio"
+        title={projectArt === "cedar" ? "Aumbram" : "Wallely"}
         image={image}
         className={className}
       />
     );
   }
 
-  if (projectArt === "relay" || category === "API") {
+  if (projectArt === "relay") {
     return (
       <CodeMockup
-        endpoint="/v1/events/dispatch"
+        endpoint="/api/chat"
         method="POST"
         image={image}
         className={className}
@@ -527,11 +513,11 @@ export function ProjectMockupDispatcher({
     );
   }
 
-  // Fallback / Open Source (Form & Field)
+  // Restaurant App (MERN) / Full-stack
   return (
     <BrowserMockup
       type="store"
-      url="formandfield.design/shop"
+      url="restaurant-app.onrender.com"
       image={image}
       className={className}
     />

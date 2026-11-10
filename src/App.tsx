@@ -6,7 +6,7 @@ import { Project3DTiltCard, type ProjectItem } from "./components/Project3DTiltC
 import { Preloader } from "./components/Preloader";
 import { CustomCursor } from "./components/CustomCursor";
 import { useLenis } from "./hooks/useLenis";
-import { PERSON } from "./data/profile";
+import { PERSON, PLAY_STORE_URL, RESTAURANT_LIVE_URL, MESSAGEMATE_GITHUB_URL } from "./data/profile";
 
 const Hero3DScene = lazy(() => import("./components/3d/Hero3DScene"));
 const Background3D = lazy(() => import("./components/3d/Background3D"));
@@ -58,10 +58,49 @@ function SectionHeading({ label, title, intro }: { label: string; title: string;
 }
 
 const projects: ProjectItem[] = [
-  { n: "01", title: "Cedar Finance", type: "Product design & development", category: "Web", metric: "42% faster workflows", description: "A focused financial dashboard that turns complex portfolio data into clear decisions.", tags: ["React 19", "TypeScript", "Node.js"], art: "cedar", featured: true },
-  { n: "02", title: "Northline Studio", type: "3D Digital experience", category: "Mobile", metric: "2.4× engagement", description: "An architectural spatial experience with real-time WebGL rendering and zero scroll-lag.", tags: ["Next.js", "Three.js", "Framer Motion"], art: "north", featured: false },
-  { n: "03", title: "Relay API", type: "Backend systems", category: "API", metric: "99.99% uptime", description: "A resilient event infrastructure processing millions of messages without friction.", tags: ["Go", "PostgreSQL", "Redis"], art: "relay", featured: false },
-  { n: "04", title: "Form & Field", type: "E-commerce & Spatial", category: "Open Source", metric: "38% faster load", description: "A calm, tactile storefront for a contemporary furniture collection with 3D product previews.", tags: ["React", "Stripe", "Prisma"], art: "field", featured: true },
+  {
+    n: "01",
+    title: "Aumbram",
+    type: "Mobile app · Google Play",
+    category: "Mobile",
+    description: "All-in-one platform with e-commerce, online learning, social networking and music streaming, live on the Google Play Store.",
+    tags: ["React Native", "TypeScript", "REST APIs"],
+    liveUrl: PLAY_STORE_URL,
+    art: "cedar",
+    featured: true,
+  },
+  {
+    n: "02",
+    title: "Wallely",
+    type: "Mobile app",
+    category: "Mobile",
+    description: "Smart bill and document management app with OCR bill scanning and secure image/PDF upload.",
+    tags: ["React Native", "TanStack Query", "OCR", "Supabase"],
+    art: "north",
+    featured: false,
+  },
+  {
+    n: "03",
+    title: "Restaurant App",
+    type: "Full-stack web",
+    category: "Full-stack",
+    description: "MERN restaurant app with JWT auth, role-based authorization, PayPal payments, menu, cart and order management. Deployed on Render.",
+    tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Redux"],
+    liveUrl: RESTAURANT_LIVE_URL,
+    art: "field",
+    featured: true,
+  },
+  {
+    n: "04",
+    title: "MessageMate",
+    type: "Full-stack web",
+    category: "Full-stack",
+    description: "Real-time one-to-one chat app with Socket.IO, a React frontend and a Node/Express REST + WebSocket backend.",
+    tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Socket.IO"],
+    githubUrl: MESSAGEMATE_GITHUB_URL,
+    art: "relay",
+    featured: false,
+  },
 ];
 
 function Nav({ dark, setDark, onCommand, onLogo }: { dark: boolean; setDark: (value: boolean) => void; onCommand: () => void; onLogo: () => void }) {
@@ -112,8 +151,21 @@ function ProjectModal({ project, onClose }: { project: typeof projects[number]; 
         <span className="modal-slide-tag">{slide === 0 ? "Overview" : slide === 1 ? "Interaction system" : "Results"}</span>
       </div>
       <div className="modal-dots">{[0, 1, 2].map(i => <button className={slide === i ? "active" : ""} onClick={() => setSlide(i)} aria-label={`Show slide ${i + 1}`} key={i} />)}</div>
-      <div className="modal-body"><div><Eyebrow>{project.type}</Eyebrow><h2>{project.title}</h2><p>{project.description}</p></div><strong>{project.metric}</strong></div>
-      <div className="modal-actions"><Button href="#case-study" onClick={onClose}>View case study <Icon name="arrow" size={16} /></Button><Button href="#" variant="ghost">GitHub</Button></div>
+      <div className="modal-body">
+        <div><Eyebrow>{project.type}</Eyebrow><h2>{project.title}</h2><p>{project.description}</p></div>
+        {project.metric ? <strong>{project.metric}</strong> : null}
+      </div>
+      <div className="modal-actions">
+        {project.title === "Aumbram" && (
+          <Button href="#case-study" onClick={onClose}>View case study <Icon name="arrow" size={16} /></Button>
+        )}
+        {project.liveUrl ? (
+          <Button href={project.liveUrl} variant="secondary" onClick={onClose}>Live <Icon name="arrow" size={16} /></Button>
+        ) : null}
+        {project.githubUrl ? (
+          <Button href={project.githubUrl} variant="ghost">GitHub</Button>
+        ) : null}
+      </div>
     </div>
   </div>;
 }
@@ -381,8 +433,8 @@ function App() {
       </section>
 
       <section id="work" className="section projects">
-        <SectionHeading label="01 / Selected projects" title="Work with purpose." intro="A selection of digital products and 3D spatial experiences shaped from first principles—balancing aesthetics, interactive depth, and high performance." />
-        <div className="filter-tabs" role="tablist" aria-label="Filter projects">{["All", "Web", "Mobile", "API", "Open Source"].map(item => <button role="tab" aria-selected={filter === item} className={filter === item ? "active" : ""} onClick={() => setFilter(item)} key={item}>{item}</button>)}</div>
+        <SectionHeading label="01 / Selected projects" title="Work with purpose." intro="Mobile apps and full-stack products built with REST APIs, TypeScript and the MERN stack." />
+        <div className="filter-tabs" role="tablist" aria-label="Filter projects">{["All", "Mobile", "Full-stack"].map(item => <button role="tab" aria-selected={filter === item} className={filter === item ? "active" : ""} onClick={() => setFilter(item)} key={item}>{item}</button>)}</div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
           {filteredProjects.map(project => (
             <Project3DTiltCard

@@ -7,7 +7,7 @@ export interface ProjectItem {
   title: string;
   type: string;
   category: string;
-  metric: string;
+  metric?: string;
   description: string;
   tags: string[];
   art: string;
@@ -112,12 +112,14 @@ export function Project3DTiltCard({
             {project.n} / {project.category}
           </div>
 
-          <div
-            className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-accent/20 backdrop-blur-md text-[11px] font-mono text-accent border border-accent/40"
-            style={{ transform: "translateZ(45px)" }}
-          >
-            {project.metric}
-          </div>
+          {project.metric && (
+            <div
+              className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-accent/20 backdrop-blur-md text-[11px] font-mono text-accent border border-accent/40"
+              style={{ transform: "translateZ(45px)" }}
+            >
+              {project.metric}
+            </div>
+          )}
 
           {/* Quick Preview Hover Trigger */}
           <div
@@ -163,14 +165,28 @@ export function Project3DTiltCard({
                 onClick={onPreview}
                 className="text-accent hover:text-white transition-colors flex items-center gap-1 cursor-pointer font-medium"
               >
-                Inspect Case Study <span>↗</span>
+                Quick preview <span>↗</span>
               </button>
-              <a
-                href={project.githubUrl || "#github"}
-                className="text-text-muted hover:text-white transition-colors flex items-center gap-1"
-              >
-                GitHub <span>↗</span>
-              </a>
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-text-muted hover:text-white transition-colors flex items-center gap-1"
+                >
+                  Live <span>↗</span>
+                </a>
+              )}
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-text-muted hover:text-white transition-colors flex items-center gap-1"
+                >
+                  GitHub <span>↗</span>
+                </a>
+              )}
             </div>
           </div>
         </div>
